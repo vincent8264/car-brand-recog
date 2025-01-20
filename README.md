@@ -26,7 +26,7 @@ python main.py --input path/to/input_folder --output path/to/output_folder
 ## Details
 ### Basic struture
 
-The system uses three models in two steps. The first step uses a Retinanet model with pre-trained parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other prediction models, a fine-tuned CNN and a transfer-learned efficientnet model. 
+The system uses three models in two steps. The first step uses a Retinanet model with pre-trained parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other classification models, a fine-tuned CNN and a transfer-learned efficientnet model. 
 
 The models are trained to predict 16 common car brands below:
 
@@ -46,6 +46,8 @@ Subaru
 Tesla  
 Toyota  
 Volkswagen  
+
+The classification models both have about 80% accuracy (f1 score) on the validation set. 
 
 ### Dataset
 Images used to train the models are from three datasets:  
