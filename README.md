@@ -6,6 +6,7 @@ Detects the brands of cars in an input image using an object detection model and
 
 ### Dependencies
 torch  
+torchvision  
 PIL  
 opencv  
 numpy  
