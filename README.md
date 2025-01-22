@@ -14,15 +14,20 @@ numpy
 ### Usage
 #### Single image
 ```bash
-python main.py --input path/to/input_image.jpg --output path/to/output_image.jpg
+cd diretory/to/car_recog
+python car_recog.py --input path/to/input_image.jpg --output path/to/output_folder
 ```
-
 #### Multiple images in a folder
 ```bash
-python main.py --input path/to/input_folder --output path/to/output_folder
+cd diretory/to/car_recog
+python car_recog.py --input path/to/input_folder --output path/to/output_folder
 ```
 
+If --input and --output are not specified, it will default to the current directory, and will create a ./output folder
+
 ### Demo
+
+
 
 ## Details
 ### Basic struture
