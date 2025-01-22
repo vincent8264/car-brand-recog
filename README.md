@@ -5,7 +5,7 @@ Detects the brands of cars in an input image using an object detection model and
 
 
 ### Dependencies
-torch  
+pytorch 2.5+ 
 torchvision  
 PIL  
 opencv  
