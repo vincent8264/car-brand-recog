@@ -1,7 +1,7 @@
 # Car Brand Recognizer
-Detects the brands of cars in an input image using an object detection model and a classification model. Supports both single-image and batch processing.
+Detects the brands of cars in an input image using an object detection model and a classification model. Supports both single-image and batch processing.  
 
-(title image)
+![title image](/images/example1.jpg)
 
 
 ### Dependencies
