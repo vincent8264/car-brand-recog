@@ -31,10 +31,10 @@ I made this as a practice in deep learning, computer vision, and Python developm
 ## Usage
 ### Dependencies
 pytorch 2.5+  
-torchvision  
-PIL  
-opencv  
-numpy  
+torchvision 0.20  
+PIL 11.0  
+opencv-python 4.11  
+numpy 2.2.2 
 
 CUDA is optional, the code will automatically run the model on cpu if cuda isn't available
 
