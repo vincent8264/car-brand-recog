@@ -1,7 +1,7 @@
 # Car Brand Recognizer
 Detects the brands of cars in an input image using an object detection model and a classification model. Supports both single-image and batch processing.  
 
-![title image](/images/example1.jpg)
+![title image](/samples/example1.jpg)
 
 
 The models are trained to predict 16 common car brands below:
@@ -45,8 +45,12 @@ python car_recog.py --input path/to/input_folder --output path/to/output_folder
 If --input and --output are not specified, it will default to the current directory, and will create a ./output folder
 
 ### Demo
-
-
+![example image](/samples/example2.jpg)
+![example image](/samples/example3.jpg)
+![example image](/samples/example4.jpg)
+![example image](/samples/example5.jpg)
+![example image](/samples/example6.jpg)
+![example image](/samples/example7.jpg)
 
 ## Details
 ### Basic struture
