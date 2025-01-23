@@ -21,7 +21,7 @@
 - [Dataset](#dataset)
 
 ## Introduction
-This is a Python-based tool that detects cars and identifies their brands in images using deep-learning object detection and classification models. 
+This is a Python-based tool for detecting cars and identifying their brands in images, utilizing deep-learning object detection and classification models
 
 The models are trained to predict 16 common car brands:  
 Audi, BMW, Chevrolet, Ford, Honda, Hyundai, Jeep, Kia, Lexus, Mercedes-Benz, MINI, Nissan, Subaru, Tesla, Toyota, Volkswagen  
@@ -36,14 +36,14 @@ PIL
 opencv  
 numpy  
 
-CUDA is optional, the code will automatically run to model on cpu if cuda isn't detected
+CUDA is optional, the code will automatically run the model on cpu if cuda isn't available
 
 ### Installation
 
 ```bash
 git clone https://github.com/vincent8264/car-brand-recog.git
 ```
-Due to the file size limits of github, a separate download of the models is required.  
+Due to GitHub's file size limits, the models must be downloaded separately.  
 
 You can download the models on [google drive](https://drive.google.com/drive/folders/1KsxsLipO8j8h9q5YTSVhAheix0zfj4UJ), and place the .pt files in the ./functions/models folder like this:  
 
@@ -100,7 +100,7 @@ The following description explains each step in detail.
 
 Uses retinanet_resnet50_fpn_v2 to detect cars in the input image, for its balance between accuracy and computational needs. All objects that are detected as labels "car" and "truck" are considered as cars. This is because pick-ups, which most people would call them "cars", are in the "truck" class in the COCO dataset. Unfortunately, this causes other actual "trucks" like semis to be included.
 
-The cars in the images then pass through some checks to filter out cars that are: 
+The cars in the images then go through additional checks to filter out those that are: 
 - Too close to the border
 - Too small
 - Blocked by other cars
@@ -111,7 +111,7 @@ All the detected cars that satisfy these thresholds are then cropped, and send t
 
 The classification step uses two models to predict the brand of the cropped cars. The first model is a fine-tuned CNN which uses a VGG-like architecture with fewer units and layers. The second model is a transfer-learned model, with efficientnet_v2_s as the base model. The classification models both have about 80% accuracy (f1 score) on the validation set. 
 
-After predicting, the output probabilities of each class are then ensembled. The default ensembling method takes the maximum probability among the following three:
+After prediction, the output probabilities of each class are ensembled. The default ensembling method takes the maximum probability among the following three:
 1. probabilities of each class from model 1
 2. probabilities of each class from model 2
 3. element-wise product of 1. and 2.
@@ -120,7 +120,7 @@ This is similar to using the class with the highest probability, but if both mod
 
 ### drawer.py
 
-Finally, in this part, the bounding boxes of cars are rendered on the input image, with the predicted class and ensembled probabilities as the labels. The default color for the boxes and labels are green for more visibility.
+Finally, in this part, the bounding boxes of cars are rendered, along with the predicted class and ensembled probabilities as labels. The default color for the boxes and labels are green for more visibility.
 
 
 ## Dataset
