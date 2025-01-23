@@ -4,6 +4,25 @@ Detects the brands of cars in an input image using an object detection model and
 ![title image](/images/example1.jpg)
 
 
+The models are trained to predict 16 common car brands below:
+
+Audi  
+BMW  
+Chevrolet  
+Ford  
+Honda  
+Hyundai  
+Jeep  
+Kia  
+Lexus  
+Mercedes-Benz  
+MINI  
+Nissan  
+Subaru  
+Tesla  
+Toyota  
+Volkswagen  
+
 ### Dependencies
 pytorch 2.5+ 
 torchvision  
@@ -32,38 +51,19 @@ If --input and --output are not specified, it will default to the current direct
 ## Details
 ### Basic struture
 
-The system uses three models in two steps. The first step uses a Retinanet model with pre-trained parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other classification models, a fine-tuned CNN and a transfer-learned efficientnet model. 
-
-The models are trained to predict 16 common car brands below:
-
-Audi  
-BMW  
-Chevrolet  
-Ford  
-Honda  
-Hyundai  
-Jeep  
-Kia  
-Lexus  
-Mercedes-Benz  
-MINI  
-Nissan  
-Subaru  
-Tesla  
-Toyota  
-Volkswagen  
+The system uses three models in two steps. The first step uses a Retinanet model with pre-trained COCO dataset parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other classification models, a fine-tuned CNN and a transfer-learned efficientnet model. 
 
 The classification models both have about 80% accuracy (f1 score) on the validation set. 
 
 ### Dataset
-Images used to train the models are from three datasets:  
+Car images used to train the models are from three datasets, with car models mostly between 2005~2020.
 1. Stanford cars dataset  
 https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset
 
-3. The Car Connection Picture Dataset  
+2. The Car Connection Picture Dataset  
 https://github.com/nicolas-gervais/predicting-car-price-from-scraped-data/tree/master/picture-scraper
 
-4. Copyright-free images downloaded myself from the following websites  
+3. Copyright-free images downloaded myself  
 [pexels.com  ](https://www.pexels.com/)  
 [pixabay.com](https://www.pixabay.com/)  
 [unsplash.com](https://unsplash.com/)  
