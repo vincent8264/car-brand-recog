@@ -50,7 +50,7 @@ If --input and --output are not specified, it will default to the current direct
 ![example image](/samples/example8.jpg)
 ![example image](/samples/example9.jpg)
 ![example image](/samples/example10.jpg)
-![example image](/samples/example1.jpg)
+![example image](/samples/example11.jpg)
 
 More examples can be found in the samples folder
 
