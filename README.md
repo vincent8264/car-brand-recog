@@ -87,7 +87,7 @@ After running the program, the output folder will contain annotated images with 
 ![example image](/samples/example10.jpeg)
 ![example image](/samples/example11.png)
 
-More examples can be found in the samples folder!
+More examples can be found in the samples folder along with the sources of the images
 
 ## Details
 ### Basic structure
