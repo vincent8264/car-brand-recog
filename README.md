@@ -73,7 +73,7 @@ If `--output` is omitted, results will be saved in a new `./output` folder in th
 ### Output 
 After running the program, the output folder will contain annotated images with bounding boxes and labels, adding "detected" to the image name:
 
-│── output folder
+│── output folder  
 │  │── detected_input1.jpg  
 │  │── detected_input2.jpeg  
 │  │── detected_input3.png  
