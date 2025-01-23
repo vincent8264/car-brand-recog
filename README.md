@@ -1,25 +1,32 @@
 # Car Brand Recognizer
-A Python-based tool that detects cars and identifies their brands in images using deep-learning object detection and classification models.  
 
 ![title image](/samples/example1.jpg)
 
-The models are trained to predict 16 common car brands:  
-Audi, BMW, Chevrolet, Ford, Honda, Hyundai, Jeep, Kia, Lexus, Mercedes-Benz, MINI, Nissan, Subaru, Tesla, Toyota, Volkswagen  
-
 ## Table of Contents
 - [Car Brand Recognizer](#car-brand-recognizer)
+- [Introduction](#introduction)
 - [Usage](#usage)
   - [Dependencies](#dependencies)
+  - [Installation](#installation)
   - [Running the program](#running-the-program)
     - [Single Image](#single-image)
     - [Multiple Images](#multiple-images-in-a-folder)
-- [Demo](#demo)
+  - [Output](#output)
+- [Examples](#examples)
 - [Details](#details)
   - [Basic Structure](#basic-structure)
   - [detector.py](#detectorpy)
   - [classifier.py](#classifierpy)
   - [drawer.py](#drawerpy)
 - [Dataset](#dataset)
+
+## Introduction
+This is a Python-based tool that detects cars and identifies their brands in images using deep-learning object detection and classification models. 
+
+The models are trained to predict 16 common car brands:  
+Audi, BMW, Chevrolet, Ford, Honda, Hyundai, Jeep, Kia, Lexus, Mercedes-Benz, MINI, Nissan, Subaru, Tesla, Toyota, Volkswagen  
+
+I made this as a practice in deep learning, computer vision, and Python development.
 
 ## Usage
 ### Dependencies
@@ -36,9 +43,9 @@ CUDA is optional, the code will automatically run to model on cpu if cuda isn't 
 ```bash
 git clone https://github.com/vincent8264/car-brand-recog.git
 ```
-Due to the file size limits of github, a separate download of the models are required.  
+Due to the file size limits of github, a separate download of the models is required.  
 
-You can download the models from [google drive](https://drive.google.com/drive/folders/1KsxsLipO8j8h9q5YTSVhAheix0zfj4UJ), and place the .pt files in the ./functions/models folder like this:  
+You can download the models on [google drive](https://drive.google.com/drive/folders/1KsxsLipO8j8h9q5YTSVhAheix0zfj4UJ), and place the .pt files in the ./functions/models folder like this:  
 
 │── car_recog.py  
 │── functions  
@@ -49,7 +56,7 @@ You can download the models from [google drive](https://drive.google.com/drive/f
 
 
 ### Running the program
-Inputs with .jpg .jpeg .png are supported, and the output images will include the predicted bounding boxes and labels.  
+Inputs with .jpg .jpeg .png are supported, other file formats will be ignored. 
 
 #### Single image
 ```bash
@@ -60,11 +67,18 @@ python car_recog.py --input path/to/input_image.jpg --output path/to/output_fold
 python car_recog.py --input path/to/input_folder --output path/to/output_folder
 ```
   
-If --input is omitted, the current directory is scanned for supported image files.  
-If --output is omitted, the output images will be saved to a ./output folder.
+If `--input` is omitted, the program will scan the current directory for supported image files.  
+If `--output` is omitted, results will be saved in a new `./output` folder in the current directory.
 
-## Demo
-Example results showing bounding boxes and detected car brands.  
+### Output 
+After running the program, the output folder will contain annotated images with bounding boxes and labels, adding "detected" to the image name:
+
+│── output folder
+│  │── detected_input1.jpg  
+│  │── detected_input2.jpeg  
+│  │── detected_input3.png  
+
+## Examples
 
 ![example image](/samples/example2.jpg)
 ![example image](/samples/example3.jpg)
@@ -80,7 +94,7 @@ More examples can be found in the samples folder!
 
 The system uses three models in two steps. The first step uses a Retinanet model with pre-trained COCO dataset parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other classification models, a fine-tuned CNN and a transfer-learned efficientnet model. 
 
-The following description explains each steps in detail.
+The following description explains each step in detail.  
 
 ### detector.py
 
@@ -95,18 +109,18 @@ All the detected cars that satisfy these thresholds are then cropped, and send t
 
 ### classifier.py
 
-The classification step uses two models to predict the brand of the cropped cars. The first model is a fine-tuned CNN model with a simplified VGG architecture. The second model is a transfer-learned model, with efficientnet_v2_s as the base model. The classification models both have about 80% accuracy (f1 score) on the validation set. 
+The classification step uses two models to predict the brand of the cropped cars. The first model is a fine-tuned CNN which uses a VGG-like architecture with fewer units and layers. The second model is a transfer-learned model, with efficientnet_v2_s as the base model. The classification models both have about 80% accuracy (f1 score) on the validation set. 
 
 After predicting, the output probabilities of each class are then ensembled. The default ensembling method takes the maximum probability among the following three:
 1. probabilities of each class from model 1
 2. probabilities of each class from model 2
 3. element-wise product of 1. and 2.
 
-This is similar to just use whichever class that has the highest probs, but if both models also think another class has a significant amount of chances, the final prediction will be that class instead.
+This is similar to using the class with the highest probability, but if both models also think another class has a significant amount of chances, the final prediction will be that class instead.
 
 ### drawer.py
 
-Finally, in this part, the bounding boxes of cars are rendered on the input image, with the predicted class and ensembled probabilities as the labels. 
+Finally, in this part, the bounding boxes of cars are rendered on the input image, with the predicted class and ensembled probabilities as the labels. The default color for the boxes and labels are green for more visibility.
 
 
 ## Dataset
@@ -117,9 +131,12 @@ https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset
 
 2. The Car Connection Picture Dataset  
 https://github.com/nicolas-gervais/predicting-car-price-from-scraped-data/tree/master/picture-scraper
+https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset/data
 
 3. Copyright-free images downloaded myself  
 [pexels.com  ](https://www.pexels.com/)  
 [pixabay.com](https://www.pixabay.com/)  
 [unsplash.com](https://unsplash.com/)  
+
+
 
