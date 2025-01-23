@@ -47,10 +47,12 @@ If --input and --output are not specified, it will default to the current direct
 ### Demo
 ![example image](/samples/example2.jpg)
 ![example image](/samples/example3.jpg)
-![example image](/samples/example4.jpg)
-![example image](/samples/example5.jpg)
-![example image](/samples/example6.jpg)
-![example image](/samples/example7.jpg)
+![example image](/samples/example8.jpg)
+![example image](/samples/example9.jpg)
+![example image](/samples/example10.jpg)
+![example image](/samples/example1.jpg)
+
+More examples can be found in the samples folder
 
 ## Details
 ### Basic struture
