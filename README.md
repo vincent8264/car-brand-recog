@@ -16,9 +16,9 @@ Audi, BMW, Chevrolet, Ford, Honda, Hyundai, Jeep, Kia, Lexus, Mercedes-Benz, MIN
 - [Demo](#demo)
 - [Details](#details)
   - [Basic Structure](#basic-structure)
-  - [detector.py](#detector.py)
-  - [classifier.py](#classifier.py)
-  - [drawer.py](#drawer.py)
+  - [detector.py](#detectorpy)
+  - [classifier.py](#classifierpy)
+  - [drawer.py](#drawerpy)
 - [Dataset](#dataset)
 
 ## Usage
@@ -76,7 +76,7 @@ Example results showing bounding boxes and detected car brands.
 More examples can be found in the samples folder!
 
 ## Details
-### Basic struture
+### Basic structure
 
 The system uses three models in two steps. The first step uses a Retinanet model with pre-trained COCO dataset parameters that detects cars in the input image. The second step predicts the brands of the cars detected in the image, using ensembling of the two other classification models, a fine-tuned CNN and a transfer-learned efficientnet model. 
 
