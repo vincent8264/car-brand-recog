@@ -36,14 +36,14 @@ PIL 11.0
 opencv-python 4.11  
 numpy 2.2.2 
 
-CUDA is optional, the code will automatically run the model on cpu if cuda isn't available
+CUDA is optional, the code will automatically run the model on cpu if cuda isn't available.
 
 ### Installation
 
 ```bash
 git clone https://github.com/vincent8264/car-brand-recog.git
 ```
-Due to GitHub's file size limits, the models must be downloaded separately.  
+**IMPORTANT:** Due to GitHub's file size limits, the models must be downloaded separately.  
 
 You can download the models on [google drive](https://drive.google.com/drive/folders/1KsxsLipO8j8h9q5YTSVhAheix0zfj4UJ), and place the .pt files in the ./functions/models folder like this:  
 
@@ -87,7 +87,7 @@ After running the program, the output folder will contain annotated images with 
 ![example image](/samples/example10.jpeg)
 ![example image](/samples/example11.png)
 
-More examples can be found in the samples folder along with the sources of the images
+More examples can be found in the samples folder along with the sources of the images.
 
 ## Details
 ### Basic structure
