@@ -124,7 +124,7 @@ Finally, in this part, the bounding boxes of cars are rendered, along with the p
 
 
 ## Dataset
-Car images used to train the classification models are from three datasets, with car models mostly between 2005~2020.  
+Car images used to train the classification models are from three datasets, with car models mostly between 2005~2020. In other words, it might not perform well on newer (or older) car models.
 
 1. Stanford cars dataset  
 https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset
@@ -137,6 +137,3 @@ https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset/data
 [pexels.com  ](https://www.pexels.com/)  
 [pixabay.com](https://www.pixabay.com/)  
 [unsplash.com](https://unsplash.com/)  
-
-
-
