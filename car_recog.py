@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 from PIL import Image
 from functions.detector import detect_and_crop_cars
@@ -14,12 +15,13 @@ def process_image(input_path, output_path):
         return
 
     try:
+        # Load the image
         input_image = Image.open(input_path).convert("RGB")
         
-        # Detect and crop the images using detector
+        # Detect and crop the cars using detector
         cars_bbox, cars_image = detect_and_crop_cars(input_image)
         
-        # Predict the cropped images using classification model
+        # Predict the brands using classification models
         predicted_brands, predicted_probs = predict_car_brand(cars_image)
         
         # Draw and save the predicted results
@@ -32,6 +34,7 @@ def process_image(input_path, output_path):
         print(f"Error processing {input_path}: {e}")
 
 if __name__ == "__main__":
+    # Input parser
     parser = argparse.ArgumentParser(description="Detect car brands in an image.")
     parser.add_argument(
         "--input",
@@ -48,7 +51,13 @@ if __name__ == "__main__":
     input_path = args.input
     output_dir = args.output
     os.makedirs(output_dir, exist_ok=True)
-
+    
+    # Check if model.pt files are downloaded
+    if not (os.path.isfile('functions/models/model_ft.pt') 
+            or os.path.isfile('functions/models/model_tl.pt')):
+        print("Model files not found. Please download the .pt model files and make sure they're in the /models folder")
+        sys.exit()
+        
     if os.path.isdir(input_path):
         print(f"Processing all images in folder: {input_path}")
         input_dir = input_path
