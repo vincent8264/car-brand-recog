@@ -26,7 +26,6 @@ This is a Python-based tool for detecting cars and identifying their brands in i
 The models are trained to predict 16 common car brands:  
 Audi, BMW, Chevrolet, Ford, Honda, Hyundai, Jeep, Kia, Lexus, Mercedes-Benz, MINI, Nissan, Subaru, Tesla, Toyota, Volkswagen  
 
-I made this as a practice in deep learning, computer vision, and Python development.
 
 ## Usage
 ### Dependencies
